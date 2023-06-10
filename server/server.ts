@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express, { NextFunction, type Request, type Response } from 'express';
+import imageRouter from './routes/imageRouter';
 import imageController from './controllers/imageController';
-
 const app = express();
 const PORT = 3000;
 
@@ -10,16 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
-// route to retrieve landing page of images
-app.get('/images', imageController.getImageFromSQL, (req: Request, res: Response) => {
-  const { urls }: Record<string, any> = res.locals;
-  return res.status(200).json(urls);
-});
 
-// route to save an image to the SQL database
-app.post('/images', imageController.saveImageToSQL, (req: Request, res: Response) => {
-  return res.status(200).send('Image saved to database!');
-});
+app.use('/images', imageRouter);
 
 // route to search for images based on a given keyword
 app.get('/search', imageController.getSearchFromSQL, (req: Request, res: Response) => {

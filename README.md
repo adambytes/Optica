@@ -125,16 +125,14 @@ The project has been refactored. The folder structure has changed to feature a c
 └── vite.config.js
 ```
 
-## Querying db
+## Querying the Database
 
-- images are fetched via an axios get request to the DB at the endpoint of
-  /images with a request parameter of a number.
-- the req param equates to a page number.
-- image urls a served from a database as arrays of 16 image urls at a time (1
-  page).
+- Images are fetched via an Axios GET request to the database at the endpoint /images, with a request parameter of a number.
+- The request parameter corresponds to a page number.
+- Image URLs are served from the database as arrays of 16 image URLs at a time, which equates to one page.
 
-## some ideas for iteration
+## Some Ideas for Future Iterations
 
-- send form data from search query to backend
-- integrate RTK for state management
-- integrate image upload component
+- Send form data from the search query to the backend.
+- Integrate Redux Toolkit (RTK) for state management.
+- Integrate an image upload component.
